@@ -16,10 +16,10 @@ def calc_word_value(word):
     """Calculate the value of the word entered into function
     using imported constant mapping LETTER_SCORES"""
     word = word.upper()
-    score = None
+    score = 0
     for letter in word:
         print(letter)
-        LETTER_SCORES(letter)
+        score += LETTER_SCORES[letter]
     print('The score for the word', word, 'is', score)
     pass
 
