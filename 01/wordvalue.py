@@ -2,12 +2,13 @@ from data import DICTIONARY, LETTER_SCORES
 
 
 def load_words():
+    """Load dictionary into a list and return list"""
     words = []
-    fhand = open(DICTIONARY)
-    for word in fhand:
-        word = word.strip()
-        # print(word)
-        words.append(word)
+    with open(DICTIONARY) as fhand:
+        for word in fhand:
+            word = word.strip()
+            # print(word)
+            words.append(word)
     print('Found', len(words), 'words')
     return words
 
@@ -18,19 +19,29 @@ def calc_word_value(word):
     word = word.upper()
     score = 0
     for letter in word:
-        print(letter)
+        #print(letter)
         score += LETTER_SCORES[letter]
-    print('The score for the word', word, 'is', score)
-    pass
+    # print('The score for the word', word, 'is', score)
+    return score
 
-
-def max_word_value():
+def max_word_value(wordlist):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
-    pass
+
+    max_score = int()
+    for word in wordlist:
+        score = calc_word_value(word)
+        if score > max_score:
+            max_score = score
+            max_word = word
+    return max_word
+        
+        
 
 
 if __name__ == "__main__":
-    load_words()
-    calc_word_value('test')
+    wordlist = load_words()
+    max_word = max_word_value(wordlist)
+    print(max_word)
+    
     pass # run unittests to validate
