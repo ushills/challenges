@@ -20,6 +20,7 @@ def max_word_value(words):
 
 
 def main():
+    print(POUCH)
     pass
 
 
