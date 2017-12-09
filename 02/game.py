@@ -3,6 +3,7 @@
 # http://pybit.es/codechallenge02.html
 
 from data import DICTIONARY, LETTER_SCORES, POUCH
+from random import randint
 
 NUM_LETTERS = 7
 
@@ -19,7 +20,7 @@ def calc_word_value(word):
     return score
 
 
-def max_word_value(wordlist=data.load_words()):
+def max_word_value(wordlist=DICTIONARY):
     """Calculate the word with the max value, can receive a list
     of words as arg, if none provided uses default DICTIONARY"""
 
@@ -36,8 +37,16 @@ def max_word_value(wordlist=data.load_words()):
     return max_word
 
 
+def draw_letters():
+    """ Draw a number of letters (NUM_LETTERS) from the POUCH
+    as the POUCH is a list you need to select a random letter
+    (NUM_LETTERS) times"""
+    return [POUCH[randint(0, 98)] for i in range(NUM_LETTERS)]
+
 
 def main():
+    letters = draw_letters()
+    print(letters)
     pass
 
 
