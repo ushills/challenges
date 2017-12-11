@@ -1,5 +1,6 @@
 import itertools
 import unittest
+import re as r
 
 from game import draw_letters, calc_word_value, max_word_value
 from game import get_possible_dict_words, _get_permutations_draw
@@ -49,4 +50,4 @@ class TestGame(unittest.TestCase):
         self.assertRaises(ValueError, _validation, word, draw)
 
 if __name__ == "__main__":
-   unittest.main() 
+   unittest.main()
