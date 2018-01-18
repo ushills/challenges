@@ -65,10 +65,14 @@ def _validation(word, draw):
     """iterate through the contents of user_word as a list
     if the user_letter is not in draw_letters, return and error
     messange and ask the usre to enter another word"""
-    user_letters = list(word.upper())
-    for letter in user_letters:
-        print(letter)
-
+    for char in word.upper():
+        if char in draw:
+            draw.remove(char)
+        else:
+            raise ValueError("{} is not a valid word!".format(word))
+        if not word.lower() in DICTIONARY:
+            raise ValueError('Not a valid dictionary word, try again')
+        return word
 
 
 def main():
